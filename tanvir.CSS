@@ -1,0 +1,362 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container class to centralize content */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Section */
+header {
+    background: linear-gradient(135deg, #f51823, #e91111);
+    color: white;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    height: 502px;
+
+}
+
+/* One-by-one animation for the text inside the header */
+#animated-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#animated-text .reveal {
+    display: inline-block;
+    opacity: 0; /* Initially invisible */
+    transform: translateY(20px); /* Start from below */
+    animation: fadeInUp 10s infinite; /* Apply fadeInUp animation with 10s loop */
+}
+
+/* Apply delays for each span (word/phrase) to make them appear sequentially */
+#animated-text .reveal:nth-child(1) {
+    animation-delay: 0s; /* First word appears immediately */
+}
+
+#animated-text .reveal:nth-child(2) {
+    animation-delay: 2s; /* Second word appears after 2s */
+}
+
+#animated-text .reveal:nth-child(3) {
+    animation-delay: 4s; /* Third word appears after 4s */
+}
+
+#animated-text .reveal:nth-child(4) {
+    animation-delay: 6s; /* Fourth word appears after 6s */
+}
+
+#animated-text .reveal:nth-child(5) {
+    animation-delay: 8s; /* Fifth word appears after 8s */
+}
+
+/* Keyframe animation for fade-in and sliding up */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start from below */
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0); /* Word appears */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0); /* Word stays visible */
+    }
+    80% {
+        opacity: 0;
+        transform: translateY(20px); /* Word fades out */
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px); /* End of the animation cycle */
+    }
+}
+
+
+/* About Section */
+#about {
+    background-color: #ffffff;
+    padding: 40px 0;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#about p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Skills Section */
+#skills {
+    background-color: #f8f8f8;
+    padding: 30px 0; /* Reduced padding */
+}
+
+#skills h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Styling for each stamp item */
+.stamp-item {
+    text-align: center;
+    width: 300px; /* Width of the stamp section item */
+    margin: 0 auto; /* Center the stamp-item itself horizontally */
+}
+
+/* Styling for the image */
+.stamp-image {
+    width: 100%; /* Set width to 100% to make it responsive inside its container */
+    max-width: 300px; /* Ensure it doesn't exceed the 300px width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fits the square size without distortion */
+    border-radius: 5px; /* Optional: for rounded corners */
+    border: 5px solid #fd3a7b; /* Green border to give it a stamp-like look */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15); /* Light shadow for a lifted effect */
+    margin-bottom: 5px; /* Space between image and text */
+    margin-top: 10px; /* Space between image and text */
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center; /* Vertically centers the content */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Optional, ensures text inside is centered */
+    height: 16vh;
+}
+
+.wrapper .static-txt {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.wrapper .dynamic-txts {
+    margin-left: 15px;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+}
+
+.dynamic-txts li {
+    list-style: none;
+    color: #1de74f;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+}
+
+@keyframes slide {
+    100% {
+        top: -360px;
+    }
+}
+
+.dynamic-txts li span {
+    position: relative;
+    margin: 5px 0;
+    line-height: 90px;
+}
+
+.dynamic-txts li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #343F4F;
+    border-left: 2px solid hsl(128, 83%, 56%);
+    animation: typing 3s steps(10) infinite;
+}
+
+@keyframes typing {
+    40%, 60% {
+        left: calc(100% + 30px);
+    }
+    100% {
+        left: 0;
+    }
+}        
+
+/* Skill Cards */
+.skill {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 230px;
+    margin: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+}
+
+.skill-icon {
+    font-size: 3em;
+    color: #f12031;
+    margin-bottom: 15px;
+}
+
+.skill h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.skill p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Projects Section */
+#projects {
+    background-color: #ffffff;
+    padding: 50px 0;
+    margin-top: 40px;
+}
+
+#projects h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.project-card {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #e92828;
+}
+
+.project-card p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #f73939;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.project-card a:hover {
+    background-color: #eb3d3d;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f02121;
+    color: white;
+    padding: 30px 0; /* Reduced padding */
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.contact-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-links li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #eb3535;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-links a:hover {
+    background-color: #dd2a2a;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-radius: 0 0 15px 15px;
+}
+
+footer p {
+    font-size: 1em;
+}
